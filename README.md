@@ -58,6 +58,8 @@ Lift the black part of the FFC cable connector and insert the cable with blue pa
 
 ![FFC cable orientation](./img/ffc-cable-orientation-1.jpg)
 
+*If you're using a holder from [@bom_tarnes](https://github.com/keyboard-magpie/minimal-fpc-i2c-pcb/tree/main/holders) place the trackpad on the holder first. Note that the holders are currently designed for the **40mm curved** trackpad*.
+
 Then insert the cable into the trackpad.
 The blue part on the cable must be facing to the black dot on the cable connector.
 
@@ -72,12 +74,24 @@ POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = cirque_pinnacle_i2c
 ```
 
-To rotate or invert the trackpad this to your `config.h`:
+To rotate or invert the trackpad add this to your `config.h`:
 
 ```c
 #define POINTING_DEVICE_ROTATION_90
 #define POINTING_DEVICE_INVERT_X
 #define POINTING_DEVICE_INVERT_Y
+```
+
+To set the diameter of the trackpad add this to your `config.h` (default is 40):
+
+```c
+#define CIRQUE_PINNACLE_DIAMETER_MM 40
+```
+
+To enable tap and/or circular scroll add the following to your `config.h` respectively:
+```c
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
 ```
 
 Check the [QMK docs](https://docs.qmk.fm/#/feature_pointing_device?id=cirque-trackpad) for more settings.
